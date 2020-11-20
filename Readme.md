@@ -1,26 +1,24 @@
-# Getting Started
+# Installation
 
-### Reference Documentation
-For further reference, please consider the following sections:
+* `mvn install`
+* `mvn verify`
 
-* [Official Apache Maven documentation](https://maven.apache.org/guides/index.html)
-* [Spring Boot Maven Plugin Reference Guide](https://docs.spring.io/spring-boot/docs/2.4.0/maven-plugin/reference/html/)
-* [Create an OCI image](https://docs.spring.io/spring-boot/docs/2.4.0/maven-plugin/reference/html/#build-image)
-* [Spring Web](https://docs.spring.io/spring-boot/docs/2.4.0/reference/htmlsingle/#boot-features-developing-web-applications)
-* [Spring Boot DevTools](https://docs.spring.io/spring-boot/docs/2.4.0/reference/htmlsingle/#using-boot-devtools)
-* [Spring Configuration Processor](https://docs.spring.io/spring-boot/docs/2.4.0/reference/htmlsingle/#configuration-metadata-annotation-processor)
-* [Rest Repositories](https://docs.spring.io/spring-boot/docs/2.4.0/reference/htmlsingle/#howto-use-exposing-spring-data-repositories-rest-endpoint)
-* [JDBC API](https://docs.spring.io/spring-boot/docs/2.4.0/reference/htmlsingle/#boot-features-sql)
+###### _## ROUTES: ##_
+##### CUSTOMERS
+`GET ALL : http://localhost:8000/customers` { Method GET }
 
-### Guides
-The following guides illustrate how to use some features concretely:
+`GET ID : http://localhost:8000/customers/{id}` { Method GET }
 
-* [Building a RESTful Web Service](https://spring.io/guides/gs/rest-service/)
-* [Serving Web Content with Spring MVC](https://spring.io/guides/gs/serving-web-content/)
-* [Building REST services with Spring](https://spring.io/guides/tutorials/bookmarks/)
-* [Accessing JPA Data with REST](https://spring.io/guides/gs/accessing-data-rest/)
-* [Accessing Neo4j Data with REST](https://spring.io/guides/gs/accessing-neo4j-data-rest/)
-* [Accessing MongoDB Data with REST](https://spring.io/guides/gs/accessing-mongodb-data-rest/)
-* [Accessing Relational Data using JDBC with Spring](https://spring.io/guides/gs/relational-data-access/)
-* [Managing Transactions](https://spring.io/guides/gs/managing-transactions/)
+`POST : http://localhost:8000/createUpdateCustomers` { Method POST } // for update, just put id in the body of json
 
+`DELETE : http://localhost:8000/doDeleteCustomers/{id}` { Method DELETE }
+
+
+##### CATEGORY
+`GET ALL : http://localhost:8000/category` { Method GET }
+
+`GET ID : http://localhost:8000/category/{id}` { Method GET }
+
+`POST : http://localhost:8000/createUpdateCategory` { Method POST } // for update, just put id in the body of json
+
+`DELETE : http://localhost:8000/doDeleteCategory/{id}` { Method DELETE } 
