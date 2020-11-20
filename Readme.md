@@ -22,3 +22,11 @@
 `POST : http://localhost:8000/createUpdateCategory` { Method POST } // for update, just put id in the body of json
 
 `DELETE : http://localhost:8000/doDeleteCategory/{id}` { Method DELETE } 
+
+
+# Run Spring REST API
+##### _Windows_
+`mvnw spring-boot:run`
+
+##### _MacOS/Linux_
+`./mvnw spring-boot:run`
