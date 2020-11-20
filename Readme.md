@@ -22,7 +22,7 @@
 
 `POST : http://localhost:8000/createUpdateCategory` { Method POST } // for update, just put id in the body of json
 
-`{ "description": "test description", "name": "Example Category" }`
+`{ "description": "test description", "name": "Example Category" }` 
 
 `DELETE : http://localhost:8000/doDeleteCategory/{id}` { Method DELETE } 
 
