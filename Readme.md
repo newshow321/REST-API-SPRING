@@ -48,6 +48,18 @@ application.properties :
 `DELETE : http://localhost:8000/doDeleteCategory/{id}` { Method DELETE } 
 
 
+##### PRODUCTS (INCLUDE RELATION)
+`GET ALL : http://localhost:8000/products` { Method GET }
+
+`GET ID : http://localhost:8000/products/{id}` { Method GET }
+
+`POST : http://localhost:8000/createUpdateProducts` { Method POST } // for update, just put id in the body of json
+
+`{ "categoryId": {"id": 23}, "createdBy": {"id": 15}, "name": "Example Product" }` 
+
+`DELETE : http://localhost:8000/doDeleteProducts/{id}` { Method DELETE } 
+
+
 # Run Spring REST API
 ##### _Windows_
 `mvnw spring-boot:run`
