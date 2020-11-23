@@ -33,15 +33,24 @@ public class CategoryController {
         return data;
     }
 
+    @ResponseStatus(HttpStatus.CREATED)
     @PostMapping("/createUpdateCategory") // Create Or Update
-    public ResponseEntity<Category> createUpdate(@RequestBody Category category) {
+    public Map<String, Object> createUpdate(@RequestBody Category category) {
         categoryService.createUpdateCategory(category);
-        return new ResponseEntity<Category>(category, HttpStatus.CREATED);
+        Map<String, Object> data = new HashMap<>();
+        Map<String, Object> dataBody = new HashMap<>();
+        dataBody.put("id", category.getId());
+        dataBody.put("name", category.getName());
+        dataBody.put("description", category.getDescription());
+        data.put("status", Boolean.TRUE);
+        data.put("message", "Data Successfully save.");
+        data.put("data", dataBody);
+        return data;
     }
 
     @ResponseStatus(HttpStatus.OK)
     @DeleteMapping("/doDeleteCategory/{id}") // Delete
-    public Map<String, Object> deleteCustomer(@PathVariable("id") Integer id){
+    public Map<String, Object> deleteCustomer(@PathVariable("id") Integer id) {
         Category dataCategory = categoryService.categoryRepository.findAllById(id);
         categoryService.categoryRepository.delete(dataCategory);
         Map<String, Object> data = new HashMap<>();

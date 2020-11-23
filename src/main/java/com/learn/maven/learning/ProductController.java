@@ -33,10 +33,19 @@ public class ProductController {
         return data;
     }
 
+    @ResponseStatus(HttpStatus.CREATED)
     @PostMapping("/createUpdateProducts") // Create Or Update
-    public ResponseEntity<Product> createUpdate(@RequestBody Product product) {
+    public Map<String, Object> createUpdate(@RequestBody Product product) {
         productService.createUpdateProduct(product);
-        return new ResponseEntity<Product>(product, HttpStatus.CREATED);
+        Map<String, Object> data = new HashMap<>();
+        Map<String, Object> dataBody = new HashMap<>();
+        dataBody.put("id", product.getId());
+        dataBody.put("categoryId", product.getCategoryId().getId());
+        dataBody.put("createdBy", product.getCreatedBy().getId());
+        data.put("status", Boolean.TRUE);
+        data.put("message", "Data Successfully save.");
+        data.put("data", dataBody);
+        return data;
     }
 
     @ResponseStatus(HttpStatus.OK)

@@ -33,15 +33,24 @@ public class CustomerController {
         return data;
     }
 
+    @ResponseStatus(HttpStatus.CREATED)
     @PostMapping("/createUpdateCustomers") // Create Or Update
-    public ResponseEntity<Customer> createUpdate(@RequestBody Customer customer) {
+    public Map<String, Object> createUpdate(@RequestBody Customer customer) {
         customerService.createUpdateCustomer(customer);
-        return new ResponseEntity<Customer>(customer, HttpStatus.CREATED);
+        Map<String, Object> data = new HashMap<>();
+        Map<String, Object> dataBody = new HashMap<>();
+        dataBody.put("id", customer.getId());
+        dataBody.put("fullname", customer.getFullname());
+        dataBody.put("email", customer.getEmail());
+        data.put("status", Boolean.TRUE);
+        data.put("message", "Data Successfully save.");
+        data.put("data", dataBody);
+        return data;
     }
 
     @ResponseStatus(HttpStatus.OK)
     @DeleteMapping("/doDeleteCustomers/{id}") // Delete
-    public Map<String, Object> deleteCustomer(@PathVariable("id") Long id){
+    public Map<String, Object> deleteCustomer(@PathVariable("id") Long id) {
         Customer dataCustomer = customerService.customerRepository.findAllById(id);
         customerService.customerRepository.delete(dataCustomer);
         Map<String, Object> data = new HashMap<>();
